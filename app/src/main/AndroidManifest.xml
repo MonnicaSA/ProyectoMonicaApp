@@ -13,8 +13,11 @@
         android:theme="@style/Theme.ProyectoMonicaApp"
         tools:targetApi="31">
         <activity
+            android:name=".VentanaDiasActivity"
+            android:exported="true  " />
+        <activity
             android:name=".FormularioEjerciciosActivity"
-            android:exported="false" />
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
