@@ -10,7 +10,7 @@ import com.example.proyectomonicaapp.databinding.ActivityMainBinding
 
 class FormularioEjerciciosActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFormularioEjerciciosBinding
-    private lateinit var db: AppDatabase
+//    private lateinit var db: AppDatabase
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFormularioEjerciciosBinding.inflate(layoutInflater)

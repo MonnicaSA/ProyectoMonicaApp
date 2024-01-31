@@ -8,17 +8,20 @@
 
     <TextView
         android:id="@+id/iniciaTextView"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:text="Inicia sesion"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="Inicia sesión"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <TextView
         android:id="@+id/correoTextView"
-        android:layout_width="118dp"
+        android:layout_width="0dp"
         android:layout_height="18dp"
         android:layout_marginStart="20dp"
         android:text="Correo"
@@ -29,7 +32,7 @@
 
     <EditText
         android:id="@+id/correoElectronicoTextText"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="20dp"
@@ -42,7 +45,7 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="113dp"
+        android:layout_width="0dp"
         android:layout_height="19dp"
         android:text="Contraseña"
         app:layout_constraintBottom_toBottomOf="@+id/editTextTextPassword"
@@ -52,7 +55,7 @@
 
     <EditText
         android:id="@+id/editTextTextPassword"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPassword"
@@ -63,9 +66,11 @@
 
     <Button
         android:id="@+id/entrarButton"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
         android:text="Entrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -74,10 +79,10 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="319dp"
+        android:layout_width="0dp"
         android:layout_height="35dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="180dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="20dp"
         android:text="Bienvenido a tu agenda semanal . Planifica tu rutina de ejercicios para toda la semana."
         app:layout_constraintEnd_toEndOf="parent"
@@ -87,11 +92,12 @@
 
     <Button
         android:id="@+id/registrarButton"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
         android:text="Regístrate"
+        app:layout_constraintEnd_toStartOf="@+id/invitadoButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/entrarButton" />
 
