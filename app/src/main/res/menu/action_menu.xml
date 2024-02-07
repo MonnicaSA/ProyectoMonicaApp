@@ -8,8 +8,8 @@
         android:layout_height="wrap_content"
         android:title="Añadir" />
     <item
-        android:id="@+id/deleteExercisesItem"
+        android:id="@+id/backExercisesItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:title="Eliminar" />
+        android:title="Volver" />
 </menu>

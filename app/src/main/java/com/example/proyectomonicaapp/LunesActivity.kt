@@ -40,12 +40,13 @@ class LunesActivity : AppCompatActivity() {
                 Toast.makeText(this, "Pulsado añadir", Toast.LENGTH_SHORT).show()
                 true
             }
-
-            R.id.deleteExercisesItem -> {
-                Toast.makeText(this, "Pulsado eliminar", Toast.LENGTH_SHORT).show()
+            R.id.backExercisesItem -> {
+                val intent = Intent(
+                    this, VentanaDiasActivity::class.java
+                )
+                Toast.makeText(this, "Pulsado volver", Toast.LENGTH_SHORT).show()
                 true
             }
-
             else ->
                 return super.onOptionsItemSelected(item)
         }
