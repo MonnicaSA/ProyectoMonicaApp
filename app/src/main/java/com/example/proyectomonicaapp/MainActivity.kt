@@ -1,8 +1,9 @@
 package com.example.proyectomonicaapp
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.proyectomonicaapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -14,6 +15,8 @@ class MainActivity : AppCompatActivity() {
         binding.entrarButton.setOnClickListener {
             val intent = Intent(this, VentanaDiasActivity::class.java)
             startActivity(intent)
+            Toast.makeText(this, "Ha iniciado sesión correctamente", Toast.LENGTH_SHORT).show()
         }
+
     }
 }
