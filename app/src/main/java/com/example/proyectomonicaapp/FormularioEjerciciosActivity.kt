@@ -17,6 +17,7 @@ class FormularioEjerciciosActivity : AppCompatActivity() {
         binding.volverButton.setOnClickListener {
             val intent = Intent(this, VentanaDiasActivity::class.java)
             startActivity(intent)
+
         }
 
 

@@ -27,7 +27,8 @@ class VentanaDiasActivity : AppCompatActivity() {
             startActivity(intent)
         }
         binding.volverImageButton.setOnClickListener{
-            val intent = Intent(this, MainActivity::class.java)
+           // val intent = Intent(this, MainActivity::class.java)
+            finish()
         }
     }
 }
