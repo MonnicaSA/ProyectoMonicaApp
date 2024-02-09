@@ -16,18 +16,24 @@ import com.example.proyectomonicaapp.model.Exercise
 class DayActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDayBinding
     private lateinit var db: AppDatabase
-    private var day: Int = 1
+    private var day: Int = 0
 
     companion object{
-        val DAY_OF_WEEK = "Lunes"
+        val DAY_OF_WEEK = "dia"
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDayBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        day = intent.getIntExtra("DAY_OF_WEEK", 1)
+        day = intent.getIntExtra("DAY_OF_WEEK", day)
 
+      /*  val intent = Intent(this, DayActivity::class.java)
+        intent.putExtra("DAY_OF_WEEK", "Lunes")
+        startActivity(intent)*/
+
+       // val dayOfWeek = intent.getStringExtra("DAY_OF_WEEK")
+       // binding.diaText.text = dayOfWeek
 
 
         db = Room
@@ -45,13 +51,16 @@ class DayActivity : AppCompatActivity() {
             GridLayoutManager(this, 1, RecyclerView.VERTICAL, false)
 
         binding.exercisesRecyclerView.adapter = EjercicioAdapter(
-            db.exerciseDao().list(), this, db
+            db.exerciseDao().list(day), this, db, day
         )
+
 
         binding.addExerciseButton.setOnClickListener {
             val createExerciseIntent = Intent(
                 this, FormularioEjerciciosActivity::class.java
             )
+            createExerciseIntent.putExtra("DAY_OF_WEEK", day) // Pasar el día de la semana como un Extra
+
             startActivity(createExerciseIntent)
         }
 
@@ -60,16 +69,16 @@ class DayActivity : AppCompatActivity() {
     //Añado varios ejercicios al recycler view
     fun createInitialData() {
         db.exerciseDao().save(
-            Exercise(1, "Sit up", "15 repeticiones", "Piernas")
+            Exercise(1, "Sit up", "15 repeticiones", "Piernas", day)
         )
         db.exerciseDao().save(
-            Exercise(2, "Crunch con piernas elevadas", "15 repeticiones","Piernas")
+            Exercise(2, "Crunch con piernas elevadas", "15 repeticiones","Piernas", day)
         )
         db.exerciseDao().save(
-            Exercise(3, "Sit up con med ball", "15 repeticiones", "Piernas")
+            Exercise(3, "Sit up con med ball", "15 repeticiones", "Piernas", day)
         )
         db.exerciseDao().save(
-            Exercise(4, "Elevación de piernas", "15 repeticiones", "Piernas")
+            Exercise(4, "Elevación de piernas", "15 repeticiones", "Piernas", day)
         )
     }
 
@@ -102,4 +111,6 @@ class DayActivity : AppCompatActivity() {
         }
 
     }
+
+
 }

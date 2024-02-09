@@ -9,8 +9,8 @@ import com.example.proyectomonicaapp.model.Exercise
 @Dao
 interface ExerciseDao {
 
-    @Query("SELECT * FROM exercise")
-    fun list(): List<Exercise>
+    @Query("SELECT * FROM exercise WHERE day=:day")
+    fun list(day: Int): List<Exercise>
 
     @Query("DELETE FROM exercise WHERE name=:name")
     fun delete(name: String): Int

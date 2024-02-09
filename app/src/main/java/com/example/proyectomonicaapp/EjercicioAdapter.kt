@@ -13,7 +13,8 @@ import com.example.proyectomonicaapp.model.Exercise
 class EjercicioAdapter (
     var exercises: List<Exercise>,
     val context: Context,
-    val db: AppDatabase
+    val db: AppDatabase,
+    val day: Int
     ) :
     RecyclerView.Adapter<EjercicioAdapter.ItemViewHolder>() {
 
@@ -23,7 +24,7 @@ class EjercicioAdapter (
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         return ItemViewHolder(
-            layoutInflater.inflate(R.layout.ejercicio_layout, null)
+            layoutInflater.inflate(R.layout.ejercicio_layout, parent, false)
         )
     }
 
@@ -47,7 +48,7 @@ class EjercicioAdapter (
         binding.deleteImageView.setOnClickListener{
             val deletedRows = db.exerciseDao().delete(exercise.name)
 
-            exercises = db.exerciseDao().list()
+            exercises = db.exerciseDao().list(day)
 
             notifyDataSetChanged()
             if(deletedRows == 0) {
@@ -55,4 +56,6 @@ class EjercicioAdapter (
             }
         }
     }
+
+
 }

@@ -16,6 +16,8 @@ class FormularioEjerciciosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityFormularioEjerciciosBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        val dayOfWeek = intent.getIntExtra("DAY_OF_WEEK",0)
+
 
         db = Room
             .databaseBuilder(
@@ -38,6 +40,7 @@ class FormularioEjerciciosActivity : AppCompatActivity() {
                 name = name,
                 time = time,
                 description = description,
+                day = dayOfWeek
             )
         db
             .exerciseDao()

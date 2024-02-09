@@ -11,25 +11,28 @@ class VentanaDiasActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityVentanaDiasBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         //boton hacia actividad Lunes
         binding.lunesButton.setOnClickListener {
             // Crear un Intent para iniciar la ActivityB
             val intent = Intent (this, DayActivity::class.java)
-
+            //pasar Lunes
+            intent.putExtra("DAY_OF_WEEK", 0)
             // Iniciar la ActivityB
             startActivity(intent)
         }
         //boton hacia actividad martes
         binding.martesButton.setOnClickListener {
             // Crear un Intent para iniciar la ActivityB
-            val intent = Intent (this, FormularioEjerciciosActivity::class.java)
+            val intent = Intent (this, DayActivity::class.java)
+
+            //hacer que se vea MARTES
+            intent.putExtra("DAY_OF_WEEK", 1)
             // Iniciar la ActivityB
             startActivity(intent)
         }
         binding.volverImageButton.setOnClickListener{
-           // val intent = Intent(this, MainActivity::class.java)
-            finish()
+            val intent = Intent(this, MainActivity::class.java)
+         //   finish()
         }
     }
 }
