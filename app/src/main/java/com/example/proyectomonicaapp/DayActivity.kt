@@ -10,17 +10,25 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.example.proyectomonicaapp.database.AppDatabase
-import com.example.proyectomonicaapp.databinding.ActivityLunesBinding
+import com.example.proyectomonicaapp.databinding.ActivityDayBinding
 import com.example.proyectomonicaapp.model.Exercise
-import java.util.Date
 
-class LunesActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityLunesBinding
+class DayActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityDayBinding
     private lateinit var db: AppDatabase
+    private var day: Int = 1
+
+    companion object{
+        val DAY_OF_WEEK = "Lunes"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLunesBinding.inflate(layoutInflater)
+        binding = ActivityDayBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        day = intent.getIntExtra("DAY_OF_WEEK", 1)
+
+
 
         db = Room
             .databaseBuilder(
@@ -29,7 +37,7 @@ class LunesActivity : AppCompatActivity() {
                 AppDatabase.DATABASE_NAME
             )
             .allowMainThreadQueries().build()
-        createInitialData()
+        //createInitialData()
         //para el menu
         setSupportActionBar(binding.menuToolbar)
 

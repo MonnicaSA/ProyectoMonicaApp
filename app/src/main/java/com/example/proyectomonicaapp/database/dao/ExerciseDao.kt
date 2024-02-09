@@ -19,5 +19,5 @@ interface ExerciseDao {
     fun listNameExercises(name: String): List<Exercise>
 
     @Insert
-    fun save(book: Exercise)
+    fun save(exercise: Exercise)
 }

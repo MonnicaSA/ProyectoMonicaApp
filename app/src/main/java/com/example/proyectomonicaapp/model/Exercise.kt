@@ -9,5 +9,5 @@ data class Exercise(
     @ColumnInfo("name") val name: String,
     @ColumnInfo("time") val time: String,
     @ColumnInfo("description") val description: String,
-  //  @ColumnInfo("spacious") val spacious: String
+    //@ColumnInfo("day") val day: Int
 )

@@ -11,10 +11,11 @@ class VentanaDiasActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityVentanaDiasBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         //boton hacia actividad Lunes
         binding.lunesButton.setOnClickListener {
             // Crear un Intent para iniciar la ActivityB
-            val intent = Intent (this, LunesActivity::class.java)
+            val intent = Intent (this, DayActivity::class.java)
 
             // Iniciar la ActivityB
             startActivity(intent)
