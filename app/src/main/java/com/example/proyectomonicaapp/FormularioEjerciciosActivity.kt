@@ -16,7 +16,7 @@ class FormularioEjerciciosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityFormularioEjerciciosBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        val dayOfWeek = intent.getIntExtra("DAY_OF_WEEK",0)
+        val dayOfWeek = intent.getIntExtra(DayActivity.DAY_OF_WEEK, 0)
 
 
         db = Room
@@ -31,7 +31,7 @@ class FormularioEjerciciosActivity : AppCompatActivity() {
             val intent = Intent(this, VentanaDiasActivity::class.java)
             startActivity(intent)
         }
-        binding.guardarButton.setOnClickListener{
+        binding.guardarButton.setOnClickListener {
             val name = binding.nomEjerEditTextText.text.toString()
             val time = binding.tiempoTextText.text.toString()
             val description = binding.editTextTextMultiLine.text.toString()
@@ -42,11 +42,11 @@ class FormularioEjerciciosActivity : AppCompatActivity() {
                 description = description,
                 day = dayOfWeek
             )
-        db
-            .exerciseDao()
-            .save(exercise)
-        finish()
-    }
+            db
+                .exerciseDao()
+                .save(exercise)
+            finish()
+        }
 
     }
 }

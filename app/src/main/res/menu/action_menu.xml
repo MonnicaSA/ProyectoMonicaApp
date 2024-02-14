@@ -6,7 +6,7 @@
         android:id="@+id/addExercisesItem"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:title="Añadir" />
+        android:title="Ejemplos" />
     <item
         android:id="@+id/backExercisesItem"
         android:layout_width="wrap_content"

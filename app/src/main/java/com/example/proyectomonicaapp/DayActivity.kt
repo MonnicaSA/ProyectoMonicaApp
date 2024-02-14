@@ -26,14 +26,7 @@ class DayActivity : AppCompatActivity() {
         binding = ActivityDayBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        day = intent.getIntExtra("DAY_OF_WEEK", day)
-
-      /*  val intent = Intent(this, DayActivity::class.java)
-        intent.putExtra("DAY_OF_WEEK", "Lunes")
-        startActivity(intent)*/
-
-       // val dayOfWeek = intent.getStringExtra("DAY_OF_WEEK")
-       // binding.diaText.text = dayOfWeek
+        day = intent.getIntExtra(DAY_OF_WEEK, 0)
 
 
         db = Room
@@ -59,15 +52,15 @@ class DayActivity : AppCompatActivity() {
             val createExerciseIntent = Intent(
                 this, FormularioEjerciciosActivity::class.java
             )
-            createExerciseIntent.putExtra("DAY_OF_WEEK", day) // Pasar el día de la semana como un Extra
-
+            createExerciseIntent.putExtra(DAY_OF_WEEK, day) // Pasar el día de la semana como un Extra
             startActivity(createExerciseIntent)
         }
 
     }
 
     //Añado varios ejercicios al recycler view
-    fun createInitialData() {
+
+ /*    fun createInitialData() {
         db.exerciseDao().save(
             Exercise(1, "Sit up", "15 repeticiones", "Piernas", day)
         )
@@ -80,6 +73,13 @@ class DayActivity : AppCompatActivity() {
         db.exerciseDao().save(
             Exercise(4, "Elevación de piernas", "15 repeticiones", "Piernas", day)
         )
+    }*/
+
+    override fun onResume() {
+        super.onResume()
+        val adapter = binding.exercisesRecyclerView.adapter as EjercicioAdapter
+        adapter.exercises = db.exerciseDao().list(day)
+        adapter.notifyDataSetChanged()
     }
 
 
