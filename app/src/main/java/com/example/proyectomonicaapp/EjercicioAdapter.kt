@@ -1,6 +1,7 @@
 package com.example.proyectomonicaapp
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,6 +56,13 @@ class EjercicioAdapter (
                 Toast.makeText(context, "No se ha eliminado ningún ejercicio", Toast.LENGTH_LONG).show()
             }
         }
+        binding.editImageView.setOnClickListener{
+            val modifyExerciseIntent = Intent(context, FormularioEjerciciosActivity::class.java)
+            context.startActivity(modifyExerciseIntent)
+        }
+
+
+
     }
 
 

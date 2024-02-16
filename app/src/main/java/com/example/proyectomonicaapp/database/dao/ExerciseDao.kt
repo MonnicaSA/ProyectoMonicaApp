@@ -17,7 +17,14 @@ interface ExerciseDao {
 
     @Query("SELECT * FROM exercise WHERE name=:name")
     fun listNameExercises(name: String): List<Exercise>
-
+    /*GUARDAR*/
     @Insert
     fun save(exercise: Exercise)
+
+
+    /*   MODIFICAR    */
+    @Update
+    fun update(exercise: Exercise)
+    @Query("SELECT * FROM exercise WHERE name=:name")
+    fun findByName(name: String): Exercise?
 }

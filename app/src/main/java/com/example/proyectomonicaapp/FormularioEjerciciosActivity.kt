@@ -12,6 +12,12 @@ import com.example.proyectomonicaapp.model.Exercise
 class FormularioEjerciciosActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFormularioEjerciciosBinding
     private lateinit var db: AppDatabase
+
+    private var nameExerciseEdit: String?=null
+    enum class Params{
+        NAME_EXERCISE;
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFormularioEjerciciosBinding.inflate(layoutInflater)
@@ -26,6 +32,20 @@ class FormularioEjerciciosActivity : AppCompatActivity() {
                 AppDatabase.DATABASE_NAME
             )
             .allowMainThreadQueries().build()
+
+        //MODIFICAR
+        nameExerciseEdit = intent.extras?.getString(Params.NAME_EXERCISE.name)
+
+        nameExerciseEdit?.let { nameExerciseEdit ->
+            binding.guardarButton.text = "Modificar"
+            db.exerciseDao().findByName(nameExerciseEdit)?.let { exercise ->
+                binding.nomEjerEditTextText.setText(exercise.name.toString())
+                binding.tiempoTextText.setText(exercise.time.toString())
+                binding.editTextTextMultiLine.setText(exercise.description.toString())
+            }
+        }
+
+
 
         binding.volverButton.setOnClickListener {
             val intent = Intent(this, VentanaDiasActivity::class.java)
@@ -47,6 +67,8 @@ class FormularioEjerciciosActivity : AppCompatActivity() {
                 .save(exercise)
             finish()
         }
+
+
 
     }
 }
